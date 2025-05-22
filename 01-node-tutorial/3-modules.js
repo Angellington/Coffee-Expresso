@@ -17,3 +17,8 @@ sayHi('Raquel')
 sayHi('susan')
 sayHi(names.minerva)
 sayHi(names.alves)
+
+const { singlePerson } = require('./6-alternative-flavor')
+console.log(singlePerson.name)
+
+require('./7-mind-grenade') // Esta exportando aqui (fazendo referencia)
