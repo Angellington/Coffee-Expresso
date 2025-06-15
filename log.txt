@@ -1,0 +1,1 @@
+Sistema iniciado em: function toLocaleTimeString() { [native code] }
