@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "lodash": "^4.17.21"
+  },
+  "name": "express-journey",
+  "version": "1.0.0",
+  "main": "13-npm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angellington/Coffee-Expresso.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Angellington/Coffee-Expresso/issues"
+  },
+  "homepage": "https://github.com/Angellington/Coffee-Expresso#readme",
+  "description": ""
+}
