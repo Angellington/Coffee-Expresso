@@ -7,7 +7,8 @@
   "version": "1.0.0",
   "main": "13-npm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
     "url": "https://github.com/Angellington/Coffee-Expresso/issues"
   },
   "homepage": "https://github.com/Angellington/Coffee-Expresso#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
