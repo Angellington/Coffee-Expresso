@@ -1,28 +1,29 @@
-const http = require("http");
-const { readFileSync } = require('fs')
+const express = require('express');
+const app = express();
+const logger = require('./logger');
 
-// get all files
-const homePage = readFileSync('./index.html')
+// req => middleware => 
 
-const server = http.createServer((req, res) => {
-    const url = req.url;
-    if(url === '/'){
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write(homePage);
-        res.homePage
-        res.end();
-    } else if(url === '/about'){
-        // about page
-        res.writeHead(200, { "content-type": "text/html" });
-        res.write("<h1>About Page</h1>");
-    } else {
-        // 404
-        res.writeHead(404, { "content-type": "text/html" });
-        res.write("<h1>page not found</h1>");
-        res.end();
-    }
-    
+app.use('/api',logger)
+// APP.USE invoca a função em todas as rotas
 
-});
+app.get('/', (req, res, next) => {
+    res.send('Home');
+})
 
-server.listen(5000);
+app.get('/about', (req, res) => {
+    res.send('About');
+})
+
+app.get('/api/products', (req, res) => {
+    res.send('About');
+})
+
+app.get('/api/items', (req, res) => {
+    res.send('About');
+})
+
+
+app.listen(5000, () => {
+    console.log('Server is listening on port 5000...')
+})
