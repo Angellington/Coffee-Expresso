@@ -1,29 +1,28 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const logger = require('./logger');
 
-// req => middleware => 
+const peopleRouter = require("./routes/people");
+const auth = require('./routes/auth.js')
+const { musicas } = require("./data/data.js"); // importa musicas
 
-app.use('/api',logger)
-// APP.USE invoca a função em todas as rotas
+// middlewares
+app.use(express.static("./methods-public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res, next) => {
-    res.send('Home');
-})
+// monta o router em /api/people
+app.use('/login', auth)
+app.use("/api/people", peopleRouter);
 
-app.get('/about', (req, res) => {
-    res.send('About');
-})
+// rota de músicas
+app.get("/api/musicas", (req, res) => {
+  res.status(200).json({ success: true, data: musicas });
+});
 
-app.get('/api/products', (req, res) => {
-    res.send('About');
-})
-
-app.get('/api/items', (req, res) => {
-    res.send('About');
-})
+// login
 
 
-app.listen(5000, () => {
-    console.log('Server is listening on port 5000...')
-})
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}...`);
+});
